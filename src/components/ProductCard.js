@@ -76,7 +76,7 @@ console.log();
 
     return (
         <div>
-            <Card style={{width:"230px"}}>
+            <Card style={{width:"230px"}}className="product-card">
                 <CardBody>
                     <CardTitle>
                         

@@ -44,15 +44,7 @@ const Body = () => {
         }))
 
         // console.log("prod",shoppingProducts);
-    
-        shoppingProducts.map((pr)=>{
 
-         
-            if(!wishlist.some(prod=>prod.id==pr.id)){
-                
-                console.log("z",prod);
-            }
-        })
 
 
         setproducts(shoppingProducts)
@@ -98,7 +90,7 @@ const Body = () => {
                                  <Container fluid style={{padding:"10px"}}>
 
                                     <Container style={{background:"#fff"}} className="rounded shadow-sm p-2 mx-auto">     
-                                    <Button className="mx-2 rounded-4 btn-light  options-button btn-sm shadow-lg btn-outline-secondary"  style={{borderRadius:"15%",}} onClick={()=>loadFromWishlist()}>Your wishlists({wishlist.length})</Button>
+                                    <Button className="mx-2 rounded-4 btn-light  options-button btn-sm shadow-lg btn-outline-secondary my-2"  style={{borderRadius:"15%",}} onClick={()=>loadFromWishlist()}>Your wishlists({wishlist.length})</Button>
 
                                     <Button className="mx-2 rounded-4 btn-light  options-button btn-sm shadow-lg btn-outline-secondary"  style={{borderRadius:"15%"}} onClick={()=>{fetchDetails("laptop")}}>laptops</Button>
                                       
