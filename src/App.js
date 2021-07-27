@@ -1,24 +1,28 @@
-import logo from './logo.svg';
+import React,{useReducer} from 'react';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import NavbarC from './components/Navbar';
+import Body from './components/Body';
+import CartReducer from './context/CartReducer';
+import CartContext from './context/CartContext';
+import WishlistReducer from './context/WishlistReducer';
+
+
 
 function App() {
+
+  const [cart, dispatch] = useReducer(CartReducer,[])
+  const[wishlist,dispatch1]=useReducer(WishlistReducer,[])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <CartContext.Provider value={{cart,dispatch}}>
+    <NavbarC/>
+   <Body/>
+    </CartContext.Provider>
+     
+    </>
+  
+    
   );
 }
 

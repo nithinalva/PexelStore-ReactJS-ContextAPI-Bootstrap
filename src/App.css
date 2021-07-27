@@ -1,38 +1,60 @@
-.App {
-  text-align: center;
+.navbar{
+
+  background-color: #6718A8 !important;
+  color: #fff !important;
+}
+.my-button{
+  background-color: #6718A8 !important;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.my-button:hover{
+  background-color: #fff !important;
+  color:#6718A8 !important
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.left-nav{
+  margin-left: auto;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+body{
+  background-color: #F6F6F6 !important;
 }
 
-.App-link {
-  color: #61dafb;
+.options-button:hover{
+  background-color: #6718A8 !important;
+  color: white !important;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.desc{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* number of lines to show */
+  -webkit-box-orient: vertical;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #A9A9A9; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+
+.cart{
+ 
+  max-height: 500px;
+  overflow-y: scroll;
 }
