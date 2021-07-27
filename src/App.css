@@ -7,11 +7,18 @@
   background-color: #6718A8 !important;
 }
 
+
 .my-button:hover{
   background-color: #fff !important;
   color:#6718A8 !important
 }
-
+a{
+  color: #fff !important;
+  text-decoration: none !important;
+}
+ .my-button a:hover{
+   color: #000 !important;
+ }
 .left-nav{
   margin-left: auto;
 }
