@@ -2,10 +2,13 @@ import React, { useContext } from 'react'
 import { Row,Card,Col, Container, Button } from 'reactstrap'
 import CartContext from '../context/CartContext'
 import {RiDeleteBin5Line} from  'react-icons/ri'
+import { REMOVE_FROM_CART } from '../context/actions.type'
 
 const Cart = () => {
-    const{cart}=useContext(CartContext)
-  
+    const{cart,cartdispatch}=useContext(CartContext)
+
+    
+    
     return (
         <Container style={{marginBottom:"2px"}} className="cart" >
             <Row>
@@ -20,7 +23,10 @@ const Cart = () => {
                         <p className="text-dark"><strong>{product.price}.00 Rs</strong></p>
                         </Col>
                         <Col lg="3">
-                        <Button className="btn-sm my-4 bg-white" style={{color:"#000"}}><RiDeleteBin5Line/></Button>
+                        <Button className="btn-sm my-4 bg-white" style={{color:"#000"}} onClick={()=>{cartdispatch({
+                            type:REMOVE_FROM_CART,
+                            payload:product.basketId
+                        })}}><RiDeleteBin5Line/></Button>
                         </Col>
 
                     </Row>

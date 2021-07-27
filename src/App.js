@@ -11,13 +11,14 @@ import WishlistReducer from './context/WishlistReducer';
 
 function App() {
 
-  const [cart, dispatch] = useReducer(CartReducer,[])
-  const[wishlist,dispatch1]=useReducer(WishlistReducer,[])
+  const [cart, cartdispatch] = useReducer(CartReducer,[])
+  const [wishlist,wishlistdispatch]=useReducer(WishlistReducer,[])
   return (
     <>
-    <CartContext.Provider value={{cart,dispatch}}>
+    <CartContext.Provider value={{wishlist,wishlistdispatch,cart,cartdispatch}}>
     <NavbarC/>
    <Body/>
+   
     </CartContext.Provider>
      
     </>

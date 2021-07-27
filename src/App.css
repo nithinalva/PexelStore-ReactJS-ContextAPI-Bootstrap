@@ -24,7 +24,10 @@ body{
   background-color: #6718A8 !important;
   color: white !important;
 }
-
+.options-button:checked{
+  background-color: #6718A8 !important;
+  color: white !important;
+}
 .desc{
   overflow: hidden;
   text-overflow: ellipsis;

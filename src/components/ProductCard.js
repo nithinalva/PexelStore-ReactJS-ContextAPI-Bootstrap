@@ -1,47 +1,78 @@
 
 import React, { useContext, useState } from 'react'
 import { Card, CardBody, CardText, CardTitle ,Button} from 'reactstrap'
-import { ADD_TO_CART, ADD_TO_WISHLIST } from '../context/actions.type'
+import { ADD_TO_CART, ADD_TO_WISHLIST,UPDATE_STATUS } from '../context/actions.type'
 import CartContext from '../context/CartContext'
 import {AiOutlineHeart} from 'react-icons/ai'
 import {AiFillHeart} from 'react-icons/ai'
-import WishlistContext from '../context/WishlistContext'
+import WishlistContext from '../context/CartContext'
+import { v4 } from 'uuid'
 
 
-const ProductCard = ({photos,price,description,author}) => {
-    const{dispatch}=useContext(CartContext)
-    const{dispatch1}=useContext(WishlistContext)
-    
-    const[wishlist,setWishlist]=useState(false);
+
+const ProductCard = ({photos,price,description,author,wishlisted,id,setproducts,products}) => {
+    const{cartdispatch}=useContext(CartContext)
+    const{wishlist,wishlistdispatch}=useContext(WishlistContext)
+
+    // const[wishlist,setWishlist]=useState(false);
    
 
     const addTOCartHandler=()=>{
         const product={
+            id,
             price,
             photos,
             description,
-            author
+            author,
+            wishlisted,
+            basketId:v4()
         }
 
-        dispatch({
+        cartdispatch({
             type:ADD_TO_CART,
             payload:product
         })
     }
 
 
-// const addTowishList=()=>{
-//     const products={
-//         price,
-//         photos,
-//         description,
-//         author
-//     }
-//   dispatch1({
-//       type:ADD_TO_WISHLIST,
-//       payload:products
+const addTowishList=()=>{
+    const products1={
+        id,
+        price,
+        photos,
+        description,
+        author,
+        wishlisted
+    }
+  wishlistdispatch({
+      type:ADD_TO_WISHLIST,
+      payload:products1
+  })
+
+//   wishlistdispatch({
+      
+//       type:UPDATE_STATUS,
+//       payload:id
+
 //   })
-// }
+}
+
+
+
+
+const wishlistChecker=(id)=>
+{
+// const index=products.findIndex(product=>product.id===id)
+// console.log(index);
+
+
+// setproducts([...products,products[index].wishlisted=true])
+
+    const include=wishlist.some(pro=>pro.id===id)
+console.log();
+    return include
+}
+
 
     return (
         <div>
@@ -59,7 +90,8 @@ const ProductCard = ({photos,price,description,author}) => {
                         <h6 className="text-dark">{price}.00 Rs</h6>
                     <span className="text-secondary desc">{description}</span>
                     </CardText>
-                    <span>{wishlist?<AiFillHeart />:<AiOutlineHeart onClick={()=>{setWishlist(true)}}/>}</span>
+                    
+                    <span>{wishlistChecker(id)?<AiFillHeart />:<AiOutlineHeart onClick={()=>{addTowishList()}}/>}</span>
                         <Button className=" btn-sm my-button" style={{float:"right"}}  onClick={()=>addTOCartHandler()}>Add to cart</Button>
                 </CardBody>
             </Card>

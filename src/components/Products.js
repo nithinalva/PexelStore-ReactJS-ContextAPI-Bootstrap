@@ -4,7 +4,7 @@ import VideoPlayer from 'react-video-js-player';
 import ProductCard from './ProductCard';
 
 
-const Products = ({products}) => {
+const Products = ({products,setproducts}) => {
     return (
         <div>
             <Container className="rounded shadow-sm"  style={{width:"100%",height:"800px",backgroundColor:"#fff",marginTop:"8px",maxHeight:"750px",overflowY:"scroll"}} >
@@ -13,7 +13,7 @@ const Products = ({products}) => {
                     {products.map((prod,index)=>(
 
                 <Col md={3}  style={{margin:"1.5rem"}}  key={index}>
-                    <ProductCard photos={prod.photos} price={prod.price}  description={prod.description} author={prod.author}  />
+                    <ProductCard id={prod.id} photos={prod.photos} price={prod.price}  description={prod.description} author={prod.author} wishlisted={prod.wishlisted} setproducts={setproducts} products={products}/>
                 </Col>
 
                     ))}
