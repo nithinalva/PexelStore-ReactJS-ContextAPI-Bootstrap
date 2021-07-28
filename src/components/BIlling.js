@@ -24,7 +24,7 @@ const BIlling = () => {
                 <h3>Your items({cart.length})</h3>
 
                 </div>
-                {cart.length>0?<Cart />: <img src="https://www.tyjara.com/assets/site/img/empty-cart.png" style={{height:"590px",width:"390px",objectFit:"contain"}}></img>}
+                {cart.length>0?<Cart />: <img src="https://www.tyjara.com/assets/site/img/empty-cart.png" alt="/images/empty-cart.png" style={{height:"590px",width:"390px",objectFit:"contain"}}></img>}
                 
                
            </Container>
